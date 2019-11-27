@@ -8,7 +8,7 @@ $(document).ready(function() {
     var Weather = Backbone.Model.extend({
 		setUrl: function(city) {
 			city = city || 'bogota';
-			this.url = 'http://api.openweathermap.org/data/2.5/weather?units=metric&q='+city+'&APPID=e31fd8d3740d5ec07ab42317860ae208';
+			this.url = 'https://api.openweathermap.org/data/2.5/weather?units=metric&q='+city+'&APPID=e31fd8d3740d5ec07ab42317860ae208';
 			
 		}
     });
