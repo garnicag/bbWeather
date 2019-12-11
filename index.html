@@ -1,53 +1,65 @@
 <!doctype html>
 <html class="no-js" lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>bbWeather</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/animate.css">
-        <link rel="stylesheet" href="css/main.css">
-    </head>
-    <body>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>bbWeather</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<div class="wrapper animated fadeIn">
-			<header>
-				<h1>bbWeather</h1><br>
-			</header>
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="css/main.css">
+</head>
 
-			<div id="weather"></div>
+<body>
+	<div class="wrapper animated fadeIn">
+		<header>
+			<h1>bbWeather</h1><br>
+		</header>
 
-			<script class="weatherTemplate" id="weatherTemplate" type="text/template">
+		<div id="weather"></div>
+		<div id="graph"></div>
+		<script class="weatherTemplate" id="weatherTemplate" type="text/template">
+			<div class="icon animated bounceIn">
+				<img src="img/icons/<%= weather[0].icon %>.svg">
+			</div>
 
-				<div class="icon animated bounceIn">
-					<img src="img/icons/<%= weather[0].icon %>.svg">
+			<div class="city animated fadeInUp">
+				<strong><%= name %></strong>, <%= sys.country %>
+			</div>
+
+			<div class="temp animated fadeInUp" id="temp">
+				<%= roundedTemp %> ºC
+				<br>
+			</div>
+
+			<div class="forecast animated fadeInUp">
+				<div class="tomorrow">
+					<br>
+					Lunes: <%= Math.round(roundedTemp*0.66) %> ºC ··
+					Martes: <%= Math.round(roundedTemp*0.76) %> ºC ··
+					Miércoles: <%= Math.round(roundedTemp*0.86) %> ºC ··
+					Jueves: <%= Math.round(roundedTemp*0.96) %> ºC ··
+					Viernes: <%= Math.round(roundedTemp*1.1) %> ºC ··
+					Sábado: <%= Math.round(roundedTemp*0.83) %> ºC ··
+					Domingo: <%= Math.round(roundedTemp*0.88) %> ºC
 				</div>
-
-				<div class="city animated fadeInUp">
-                	<strong><%= name %></strong>, <%= sys.country %>
-                </div>
-
-                <div class="temp animated fadeInUp" id="temp">
-                    <%= main.temp %> ºC<br><br>
-                </div>
+			</div>
 				
-		        <div class="filter" id="filter">
-		        	<label>Check the weather in</label>
-		        	<input type="text" id="new-city" placeholder="this city" name="city">
-		        </div>
-				
-	        </script>
+			<div class="filter" id="filter">
+				<label>Ver el clima de</label>
+				<input type="text" id="new-city" placeholder="esta ciudad" name="city">
+			</div>		
+		</script>
+	</div>
 
-		</div>
+	<script src="js/vendor/jquery.min.js"></script>
+	<script src="js/vendor/underscore.js"></script>
+	<script src="js/vendor/d3.v4.js"></script>
+	<script src="js/vendor/backbone.js"></script>
+	<script src="js/main.js"></script>
 
-        <script src="js/vendor/jquery.min.js"></script>
-		<script src="js/vendor/underscore.js"></script>
-		<script src="js/vendor/backbone.js"></script>
-		<script src="js/main.js"></script>
-
-
-    </body>
+	</body>
 </html>
